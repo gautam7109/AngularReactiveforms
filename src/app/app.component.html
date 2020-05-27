@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="jumbotron" >
+    <h1 class="text-center"> Angular Reactive Forms</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h4>User Register Form</h4>
+    </div>
+  </div>
+  <form [formGroup]="userForm" (submit)="submitData()">
+  <div class="row">
+    <div class="col-lg-6">
+    <div class="form-group">
+      <label for="">Username</label>
+      <input [ngClass]="{'control-error':!userForm.get('Username').valid}"
+      type="text" formControlName="Username"class="form-control" required>
+      <span style="color:red;"*ngif="!userForm.get('Username').valid">Please enter name</span>
+    </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+      <label for="">E-mail</label>
+      <input type="Email"formControlName="E-mail" class="form-control">
+    </div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+    <div class="form-group">
+      <label for="">PhoneNumber</label>
+      <input type="number" formControlName="PhoneNumber"class="form-control">
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">Password</label>
+      <input type="password"formControlName="Password" class="form-control">
+       </div> 
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">Confirm Password</label>
+      <input type="password"formControlName="Confirm Password" class="form-control">
+       </div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+    <div class="form-group">
+      <label for="">Country</label>
+      <select name="" formControlName="Country"class="form-control" id="">
+        <option value="IN">India</option>
+        <option value="US">America</option>
+        <option value="CN">Canada</option>
+      </select>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">State</label>
+      <select name="" formControlName="State"class="form-control" id="">
+        <option value="IN">Tamil-nadu</option>
+        <option value="IN">Maharastra</option>
+      </select>
+       </div> 
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">City</label>
+      <select name="" formControlName="City"class="form-control" id="">
+        <option value="IN">Chennai</option>
+        <option value="IN">Mumbai</option>
+      </select>
+       </div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">Gender:
+        <div class="form-check-inline">
+        <input type="radio" formControlName="Gender"id="radio1" name="optradio" value="Male" checked>Male
+        </div>
+        <div class="form-check-inline">
+        <input type="radio"formControlName="Gender"id="radio2" name="optradio" value="Female" checked>Female
+        </div>
+      </label>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+      <label for="">Marital Status:
+        <div class="form-check-inline">
+        <input type="radio"formControlName="Marital Status"id="radio11" name="optradio" value="Married" checked>Married
+        </div>
+        <div class="form-check-inline">
+        <input type="radio"formControlName="Marital Status"id="radio22" name="optradio" value="Unmarried" checked>Unmarried
+        </div>  
+      </label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+      <label for="">Favourite Food</label>
+      <input type="text"formControlName="Favourite Food" class="form-control">
+      </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+        <label for="">Favourite Color</label>
+        <input type="text" formControlName="Favourite Color"class="form-control">
+        </div>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-lg-12">
+      <input type="submit" class="btn btn-danger">
+    </div>
+  </div>
+  </form>
+  {{userForm.valid}}
+  {{userForm.get('Username').valid}}
+  <pre>
+    {{userForm.value | json}}
+  </pre>
+</div>
